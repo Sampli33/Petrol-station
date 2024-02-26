@@ -22,10 +22,11 @@ while True:
 
 
 def petrol_station_data():
-    '''
+    """
     Getting information about current gas station.
+
     :return: dictionary with information about gas station
-    '''
+    """
     petrol_station = {}
     with open('station_data.txt', 'r', encoding='utf-8') as file:
         for string in file:
@@ -39,26 +40,27 @@ def petrol_station_data():
 
     return petrol_station
 
-'''
+
+"""
 petrol_stations = {
     1: {'queue': 3, 'gaz types': ['АИ-80']},
     2: {'queue': 2, 'gaz types': ['АИ-92']},
     3: {'queue': 4, 'gaz types': ['АИ-92', 'АИ-95', 'АИ-98']}
 }
-'''
+"""
+
 
 def arriving_cars():
-    '''
-    Processing data from an input file
-    :return: dictionary in format {"time" : [litres, "gas type"]}
-    '''
+    """
+    Process data from an input file.
+
+    :return: Dictionary in the format {"time": [litres, "gas type"]}
+    """
     requests = {}
     with open('input.txt', 'r', encoding='utf-8') as file:
         for string in file:
             string = string.split()
-            requests[string[0]] = []
-            requests[string[0]].append(int(string[1]))
-            requests[string[0]].append(string[2])
+            requests[string[0]] = [int(string[1]), string[2]]
     return requests
 
 
