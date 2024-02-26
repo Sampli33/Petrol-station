@@ -19,3 +19,30 @@ while True:
 
         break
     language = input('Please, write your answer correctly, type "1" or "2".\n')
+
+
+def petrol_station_data():
+    '''
+    Getting information about current gas station.
+    :return: dictionary with information about gas station
+    '''
+    petrol_station = {}
+    with open('station_data.txt', 'r', encoding='utf-8') as data:
+        for string in data:
+            string = string.split()
+            column_number = int(string[0])
+            amount_of_places = int(string[1])
+            gas_type = string[2:]
+            petrol_station[column_number] = {}
+            petrol_station[column_number]['queue'] = amount_of_places
+            petrol_station[column_number]['gaz types'] = gas_type
+
+    return petrol_station
+
+'''
+petrol_stations = {
+    1: {'queue': 3, 'gaz types': ['АИ-80']},
+    2: {'queue': 2, 'gaz types': ['АИ-92']},
+    3: {'queue': 4, 'gaz types': ['АИ-92', 'АИ-95', 'АИ-98']}
+}
+'''
