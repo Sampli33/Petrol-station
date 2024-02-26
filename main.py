@@ -5,7 +5,6 @@
 
 
 # Choice of language
-
 language = input('Choose your language:\n1. English\n2. Russian\n').lower()
 while True:
     if language == 'english' or language == 'en' or \
@@ -61,6 +60,29 @@ def arriving_cars():
         for string in file:
             string = string.split()
             requests[string[0]] = [int(string[1]), string[2]]
+
     return requests
+
+
+def fueling_time(litres):
+    """
+    Representation of liters as time.
+
+    :param litres: fuel quantity
+    :return: filling time
+    """
+    import random
+
+    if litres % 10 != 0:
+        minutes = litres // 10 + 1
+    else:
+        minutes = litres // 10
+
+    assident = random.randint(-1, 1)
+    minutes += assident
+    if minutes == 0:
+        minutes = 1
+
+    return minutes
 
 
