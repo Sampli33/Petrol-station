@@ -50,13 +50,15 @@ petrol_stations = {
 def arriving_cars():
     '''
     Processing data from an input file
-    :return: dictionary in format {time : [litres, gas type]}
+    :return: dictionary in format {"time" : [litres, "gas type"]}
     '''
     requests = {}
     with open('input.txt', 'r', encoding='utf-8') as file:
         for string in file:
             string = string.split()
-            requests[string[0]] = string[1:]
+            requests[string[0]] = []
+            requests[string[0]].append(int(string[1]))
+            requests[string[0]].append(string[2])
     return requests
 
 
