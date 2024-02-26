@@ -6,7 +6,7 @@
 
 # Choice of language
 
-language = input('Choose your language:\n1.English\n2.Russian\n').lower()
+language = input('Choose your language:\n1. English\n2. Russian\n').lower()
 while True:
     if language == 'english' or language == 'en' or \
             language == 'e' or language == '1':
@@ -27,8 +27,8 @@ def petrol_station_data():
     :return: dictionary with information about gas station
     '''
     petrol_station = {}
-    with open('station_data.txt', 'r', encoding='utf-8') as data:
-        for string in data:
+    with open('station_data.txt', 'r', encoding='utf-8') as file:
+        for string in file:
             string = string.split()
             column_number = int(string[0])
             amount_of_places = int(string[1])
@@ -46,3 +46,17 @@ petrol_stations = {
     3: {'queue': 4, 'gaz types': ['АИ-92', 'АИ-95', 'АИ-98']}
 }
 '''
+
+def arriving_cars():
+    '''
+    Processing data from an input file
+    :return: dictionary in format {time : [litres, gas type]}
+    '''
+    requests = {}
+    with open('input.txt', 'r', encoding='utf-8') as file:
+        for string in file:
+            string = string.split()
+            requests[string[0]] = string[1:]
+    return requests
+
+
