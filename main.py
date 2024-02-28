@@ -1,5 +1,5 @@
 # Case- study #7 "Petrol station"
-# Developers : Setskov M. (%)
+# Developers : Setskov M. (85%)
 #              Osokina A. (63%)
 # This program generates a report on the operation of the filling station
 
