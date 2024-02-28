@@ -159,6 +159,8 @@ def add_to_queue(requests, gas_type_info, current_queue, client_lost):
         gas_type_info['total amount of petrol'] += int(requests.split()[1])
         gas_type_info[gas_type]['amount of petrol'] += int(requests.split()[1])
 
+        return station
+
     else:
         client_lost += 1
         print(lc.MISSED_CLIENT)
@@ -214,8 +216,8 @@ def main():
                     print()
 
         if new_car_time == current_time:
-            update_station = add_to_queue(new_car, gas_type, current_queue, client_lost)
-            print(lc.NEW_CLIENT.format(current_time, new_car, update_station))
+            station = add_to_queue(new_car, gas_type, current_queue, client_lost)
+            print(lc.NEW_CLIENT.format(current_time, new_car, station))
 
             requests = requests[1:]
             new_car = requests[0]
